@@ -1,4 +1,5 @@
 import { createRestApiServer } from './core/servers'
+import { envConstant } from './core/constants'
 
 const restApiServer = createRestApiServer()
 
@@ -6,7 +7,8 @@ const restApiServer = createRestApiServer()
 
 
 
-restApiServer.listen(8080, ()=>{
-    console.log("server listen in 8080");
+restApiServer.listen(envConstant.PORT, ()=>{
+    console.log(envConstant);
+
     
 })

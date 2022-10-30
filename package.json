@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "run-p -l type-check:watch start:dev",
-    "start:dev": "nodemon --exec babel-node --extensions \".ts\" src/server.ts",
+    "start:dev": "nodemon --exec babel-node -r dotenv/config --extensions \".ts\" src/server.ts",
     "start:console-runners": "yarn run type-check && babel-node -r dotenv/config --extensions \".ts\" src/console-runners/server.ts",
     "type-check": "tsc --noEmit",
     "type-check:watch": "yarn run type-check -- --watch"
