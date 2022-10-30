@@ -1,0 +1,9 @@
+{
+  "name": "tarot-dev-back",
+  "version": "0.0.1",
+  "description": "backend for application tarot-dev",
+  "main": "server.ts",
+  "repository": "https://github.com/adriel87/tarot-dev-back.git",
+  "author": "adriel <adrielarochaoronoz@gmail.com>",
+  "license": "MIT"
+}
