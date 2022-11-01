@@ -18,7 +18,7 @@ export const mapTarotCardListFromModelToApi = (
 ): apiModel.TarotCard[] => tarotCardList.map(mapTarotCardFromModelToApi)
 
 export const mapTarotCardFromApiToModel = (tarotCard : apiModel.TarotCard) : model.TarotCard => ({
-    _id: new ObjectId(tarotCard.id),
+    _id: new ObjectId(tarotCard.id ?? null),
     name : tarotCard.name,
     image : tarotCard.imageURL,
     deploy : tarotCard.deploy,

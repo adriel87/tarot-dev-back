@@ -4,6 +4,6 @@ import { mockRepository } from './tarotCard.mock-repository'
 
 
 // TODO actualizar el card repos
-export const tarotCardRepository = envConstant.isApiMock 
+export const tarotCardRepository = envConstant.isApiMock === 'true'
     ? mockRepository
     : dbRepository

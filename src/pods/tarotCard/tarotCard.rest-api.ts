@@ -1,4 +1,6 @@
+import { envConstant } from "core/constants";
 import { Router } from "express";
+import jwt from 'jsonwebtoken'
 import { tarotCardRepository } from '../../dals/tarotCard/repositories'
 import {
     mapTarotCardFromApiToModel,
@@ -11,8 +13,7 @@ export const tarotCardApi = Router()
 
 tarotCardApi
 // all tarot Cards
-    .get('/',async (req, res, next) => {
-
+.get('/',async (req, res, next) => {
     try {
         const tarotCards = await tarotCardRepository.getTarotCards();
         res.send(mapTarotCardListFromModelToApi(tarotCards))

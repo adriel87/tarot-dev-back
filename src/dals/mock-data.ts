@@ -1,8 +1,10 @@
 import { ObjectId } from 'mongodb'
 import { TarotCard } from './tarotCard'
+import { User } from './user'
 
 export interface DB {
-    tarotCards: TarotCard[]
+    tarotCards: TarotCard[],
+    user: User[],
 }
 
 export const db: DB = {
@@ -75,5 +77,19 @@ export const db: DB = {
               normal: 'comprate la loteria'
             }
           }
-    ]
+    ],
+    user:[
+      {
+      _id: new ObjectId(),
+      isAdmin: true,
+      email: 'Adri',
+      password: 'secret'
+    },
+    {
+      _id: new ObjectId(),
+      isAdmin: false,
+      email: 'Irda',
+      password: 'secret'
+    }
+  ]
 }
