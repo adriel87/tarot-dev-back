@@ -7,9 +7,6 @@ import { userApi } from 'pods/user'
 
 const restApiServer = createRestApiServer()
 
-// TODO agregar carpeta publica
-
-
 restApiServer.use(logRequestMiddleware)
 
 restApiServer.use('/api/security', securityApi)

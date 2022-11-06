@@ -1,4 +1,5 @@
 import { ObjectId } from 'mongodb'
+// import { hashPassword } from 'utils'
 
 import * as model from '../../dals'
 import * as apiModel from './user.api-model'
@@ -16,10 +17,11 @@ export const mapUserListFromModelToApi = (userList : model.User[]) : apiModel.Us
 
 
 export const mapUserFromApiToModel = (user: apiModel.User ) : model.User => ({
-    _id: user.id ? new ObjectId( user.id ?? '' ) : null,
+    _id: user.id ? new ObjectId( user.id ) : new ObjectId(),
     isAdmin: user.isAdmin,
     email: user.name,
-    password: user.password,
-})    
+    password: user.password ,
+})
+
 
 

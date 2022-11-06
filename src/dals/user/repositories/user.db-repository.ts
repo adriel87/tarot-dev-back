@@ -27,6 +27,14 @@ export const dbRepository : UserRepository = {
             email,
             password
         })
-    }
+    },
+    checkEmailExist:async (email:string) => {
+        const exist = await getUserContext().findOne({
+            email
+        })
+
+        return exist ? true : false;
+},
+    getUserByEmail:async (email:string) => await getUserContext().findOne({email})
     
 }

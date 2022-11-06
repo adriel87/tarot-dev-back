@@ -1,4 +1,6 @@
+import { deleteTemporalImages, upload, uploadToCloudinary } from "common/middlewares";
 import { envConstant } from "core/constants";
+import { TarotCard } from "dals";
 import { Router } from "express";
 import jwt from 'jsonwebtoken'
 import { tarotCardRepository } from '../../dals/tarotCard/repositories'
@@ -16,6 +18,8 @@ tarotCardApi
 .get('/',async (req, res, next) => {
     try {
         const tarotCards = await tarotCardRepository.getTarotCards();
+        console.log(tarotCards);
+        
         res.send(mapTarotCardListFromModelToApi(tarotCards))
     } catch (error) {
         next(error)        
@@ -36,10 +40,28 @@ tarotCardApi
     }
 })
 // create or update tarot card
-    .post('/', async (req, res, next) => {
+    .post('/', upload.single('file'), uploadToCloudinary , deleteTemporalImages ,async (req, res, next) => {
     try {
-        const tarotCard = mapTarotCardFromApiToModel(req.body.tarotCard);
-        const newTarotCard = await tarotCardRepository.saveTarotCard(tarotCard)
+        const newTarotCard = mapTarotCardFromApiToModel({
+            id: req.body?.id,
+            name: req.body?.name,
+            love: {
+                normal: req.body?.love,
+                inverted: req.body?.ilove,
+            },
+            luck: {
+                normal: req.body?.luck,
+                inverted: req.body?.iluck,
+            },
+            deploy: {
+                normal: req.body?.deploy,
+                inverted: req.body?.ideploy,
+            },
+            imageURL : req.body?.urlImage
+        })
+
+        tarotCardRepository.saveTarotCard(newTarotCard)
+
         res.send(newTarotCard)
     } catch (error) {
         next(error)        
