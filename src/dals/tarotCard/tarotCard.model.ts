@@ -7,6 +7,8 @@ export interface TarotCard {
     love : Descriptions,
     deploy : Descriptions,
     image : string,
+    createdAt: Date,
+    userEmail: string,
 
 }
 

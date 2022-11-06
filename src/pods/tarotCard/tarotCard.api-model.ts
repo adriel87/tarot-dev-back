@@ -6,7 +6,9 @@ export interface TarotCard {
     luck: Descriptions,
     love: Descriptions,
     deploy: Descriptions,
-    imageURL: string
+    imageURL: string,
+    createdAt: string,
+    userEmail: string,
 }
 
 interface Descriptions { 

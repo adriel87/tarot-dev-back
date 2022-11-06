@@ -11,6 +11,8 @@ export const db: DB = {
     tarotCards:[
         {
           _id: new ObjectId(),
+          userEmail: 'laranbache@hotmail.com',
+          createdAt: new Date(),
           name: 'el ce del mal',
           deploy:{
             inverted:'el pc del super mal',
@@ -28,6 +30,8 @@ export const db: DB = {
         },
         {
             _id: new ObjectId(),
+            userEmail: 'laranbache@hotmail.com',
+            createdAt: new Date(),
             name: 'el gato del mal',
             deploy:{
               inverted:'el pc del super mal',
@@ -45,6 +49,8 @@ export const db: DB = {
           },
           {
             _id: new ObjectId(),
+            userEmail: 'laranbache@hotmail.com',
+            createdAt: new Date(),
             name: 'el perro del mal',
             deploy:{
               inverted:'el pc del super mal',
@@ -62,6 +68,8 @@ export const db: DB = {
           },
           {
             _id: new ObjectId(),
+            userEmail: 'laranbache@hotmail.com',
+            createdAt: new Date(),
             name: 'el caracol del mal',
             deploy:{
               inverted:'el pc del super mal',

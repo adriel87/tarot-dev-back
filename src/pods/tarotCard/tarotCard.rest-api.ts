@@ -44,6 +44,8 @@ tarotCardApi
     try {
         const newTarotCard = mapTarotCardFromApiToModel({
             id: req.body?.id,
+            createdAt: req.body?.createdAt,
+            userEmail: req.body?.userEmail,
             name: req.body?.name,
             love: {
                 normal: req.body?.love,

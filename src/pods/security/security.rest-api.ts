@@ -18,14 +18,20 @@ securityApi
 
         const user = await userRepository.getUserByEmail(email)
 
-        // check if valid password
-        if(compareHash(password,user.password)){
-           const Bearer =  getBearerToken(user)
-           res.send({Bearer})
-        }else{
+        // check user is null
+        if(user){
 
+            // check if valid password
+            if(compareHash(password,user.password)){
+               const Bearer =  getBearerToken(user)
+               res.send({Bearer})
+            }else{
+    
+                res.sendStatus(401)
+           }
+        }else{
             res.sendStatus(401)
-       }
+        }
         
     } catch (error) {
         next(error)
@@ -34,6 +40,10 @@ securityApi
 .post('/signin',async (req, res, next) =>{
     try {
         const { email, password } = req.body;
+        if (!email || !password) {
+            throw new Error('mal formed user')
+        }
+       
         let token = '';
         let response = {};
         let status = 400;
@@ -65,6 +75,7 @@ securityApi
 
     
     } catch (error) {
+        res.sendStatus(400)
         next(error)
     }
 
