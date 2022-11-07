@@ -25,9 +25,16 @@ tarotCardApi
         next(error)        
     }
 })
+.get('/takeFromDeck', async (req, res, next) => {
+    try {
+        const tarotCardInDeck = await tarotCardRepository.getFromDeck()
+        res.send(tarotCardInDeck)
+    } catch (error) {
+        next(error)
+    }
+})
 // tarot card by id
     .get('/:id', async (req, res, next)=>{
-
     try {
         const id = req.params.id;
         const tarotCard = await tarotCardRepository.getTarotCard(id);
@@ -44,6 +51,7 @@ tarotCardApi
     try {
         const newTarotCard = mapTarotCardFromApiToModel({
             id: req.body?.id,
+            isPermanentCard: req.body?.isPermanentCard ?? false,
             createdAt: req.body?.createdAt,
             userEmail: req.body?.userEmail,
             name: req.body?.name,

@@ -18,6 +18,7 @@ export const dbRepository : TarotCardRepository = {
         {
             upsert:true, returnDocument: 'after'
         }),
-    deleteTarotCard: async (id:string) => await getTarotCardContext().deleteOne({_id:new ObjectId(id)})
-    
+    deleteTarotCard: async (id:string) => await getTarotCardContext().deleteOne({_id:new ObjectId(id)}),
+    getFromDeck:async () => await getTarotCardContext().find({ isPermanentCard: true }).toArray()
+
 }

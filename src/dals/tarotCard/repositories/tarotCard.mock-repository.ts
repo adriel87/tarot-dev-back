@@ -12,5 +12,7 @@ export const mockRepository : TarotCardRepository = {
     getTarotCards : async () => db.tarotCards,
     getTarotCard : async (id : string) => db.tarotCards.find(card => {card._id.toString() === id} ),
     saveTarotCard : async (tarotCard : TarotCard) => Boolean(tarotCard._id) ? updateCard(tarotCard) : createCard(tarotCard),
-    deleteTarotCard :async (id : string) => db.tarotCards.filter(card => card._id.toString() !== id)
+    deleteTarotCard :async (id : string) => db.tarotCards.filter(card => card._id.toString() !== id),
+    getFromDeck:async () => db.tarotCards.filter(card => card.isPermanentCard === true)
+    
 }

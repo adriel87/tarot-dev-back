@@ -12,7 +12,8 @@ export const mapTarotCardFromModelToApi = (tarotCard : model.TarotCard): apiMode
     luck: tarotCard.luck,
     love: tarotCard.love,
     name: tarotCard.name,
-    imageURL: tarotCard.image
+    imageURL: tarotCard.image,
+    isPermanentCard : tarotCard.isPermanentCard
 })
 
 export const mapTarotCardListFromModelToApi = (
@@ -27,6 +28,7 @@ export const mapTarotCardFromApiToModel = (tarotCard : apiModel.TarotCard) : mod
     image : tarotCard.imageURL,
     deploy : tarotCard.deploy,
     love : tarotCard.love,
-    luck : tarotCard.luck
+    luck : tarotCard.luck,
+    isPermanentCard: false,
     
 })

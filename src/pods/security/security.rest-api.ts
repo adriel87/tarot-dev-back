@@ -5,7 +5,7 @@ import { UserSession } from 'common-app/models';
 import { userRepository } from 'dals/user/repositories';
 import { envConstant } from 'core/constants';
 import { User } from 'dals';
-import { mapUserFromApiToModel } from 'pods/user/user.mappers';
+import { mapUserFromApiToModel, mapUserFromModelToApi } from 'pods/user/user.mappers';
 import { compareHash, getBearerToken, hashPassword } from '../../utils/cript';
 
 
@@ -15,8 +15,9 @@ securityApi
 .post('/login', async (req, res, next )=> {
     try {
         const { email, password } = req.body;
+        const response = {}
 
-        const user = await userRepository.getUserByEmail(email)
+        const user =   await userRepository.getUserByEmail(email)
 
         // check user is null
         if(user){
@@ -24,7 +25,9 @@ securityApi
             // check if valid password
             if(compareHash(password,user.password)){
                const Bearer =  getBearerToken(user)
-               res.send({Bearer})
+               response['Bearer'] = Bearer
+               response['User'] = mapUserFromModelToApi(user)
+               res.send(response)
             }else{
     
                 res.sendStatus(401)
@@ -57,7 +60,9 @@ securityApi
                 id:null,
                 isAdmin:false,
                 name:email,
-                password: hashPassword(password)
+                password: hashPassword(password),
+                isTarotCardSend : false,
+                isVoted : false
             })
     
             const user = await userRepository.saveUser(userToCreate);
@@ -67,6 +72,7 @@ securityApi
     
             if (token) {
                 response['Bearer'] = token
+                response['User'] = user
                 status = 201
             }
         

@@ -9,6 +9,7 @@ export interface TarotCard {
     image : string,
     createdAt: Date,
     userEmail: string,
+    isPermanentCard : boolean
 
 }
 

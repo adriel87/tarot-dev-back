@@ -1,9 +1,11 @@
 
 
 export interface User {
-    id: string,
+    id?: string,
     name: string,
     isAdmin: boolean,
-    password: string
+    password?: string,
+    isVoted: boolean,
+    isTarotCardSend: boolean,
 }
 

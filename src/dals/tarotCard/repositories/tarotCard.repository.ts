@@ -6,4 +6,5 @@ export interface TarotCardRepository {
     getTarotCard: ( id :string ) => Promise<WithId<TarotCard> | null> | Promise<TarotCard | undefined>;
     saveTarotCard: (tarotCard:TarotCard) => Promise<ModifyResult<TarotCard>> | Promise<number | TarotCard[]>;
     deleteTarotCard: (id: string) => Promise<DeleteResult> | Promise<TarotCard[]>;
+    getFromDeck: ()=> Promise<TarotCard[]>;
 }

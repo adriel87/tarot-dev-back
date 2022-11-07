@@ -11,6 +11,7 @@ export const db: DB = {
     tarotCards:[
         {
           _id: new ObjectId(),
+          isPermanentCard: true,
           userEmail: 'laranbache@hotmail.com',
           createdAt: new Date(),
           name: 'el ce del mal',
@@ -30,6 +31,7 @@ export const db: DB = {
         },
         {
             _id: new ObjectId(),
+            isPermanentCard: true,
             userEmail: 'laranbache@hotmail.com',
             createdAt: new Date(),
             name: 'el gato del mal',
@@ -49,6 +51,7 @@ export const db: DB = {
           },
           {
             _id: new ObjectId(),
+            isPermanentCard: true,
             userEmail: 'laranbache@hotmail.com',
             createdAt: new Date(),
             name: 'el perro del mal',
@@ -68,6 +71,7 @@ export const db: DB = {
           },
           {
             _id: new ObjectId(),
+            isPermanentCard: true,
             userEmail: 'laranbache@hotmail.com',
             createdAt: new Date(),
             name: 'el caracol del mal',
@@ -91,13 +95,17 @@ export const db: DB = {
       _id: new ObjectId(),
       isAdmin: true,
       email: 'Adri',
-      password: 'secret'
+      password: 'secret',
+      isTarotCardSend:true,
+      isVoted:true,
     },
     {
       _id: new ObjectId(),
       isAdmin: false,
       email: 'Irda',
-      password: 'secret'
+      password: 'secret',
+      isTarotCardSend:true,
+      isVoted:true,
     }
   ]
 }
