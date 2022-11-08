@@ -27,21 +27,18 @@ yarn db-start
 ```
 this function run a container whit mongo in dettached mode
 
-finally set enviroment variables
-
-
-
 2. in the root of the project run a terminal and execute the next command:
 ```bash
 yarn
 ```
+set enviroment variables
+
 3. wake up the backend app
 ```bash
 yarn start
 ```
 
 if you have any problem please take a look to your enviroment variables, check your database is running.
-
 
 
 ## Services
