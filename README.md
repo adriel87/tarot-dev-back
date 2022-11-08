@@ -25,6 +25,7 @@ third, you can use docker compose file in repositorie just need type before you 
 ```bash
 yarn db-start
 ```
+this function run a container whit mongo in dettached mode
 
 finally set enviroment variables
 
