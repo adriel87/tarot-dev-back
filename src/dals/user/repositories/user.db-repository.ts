@@ -35,6 +35,14 @@ export const dbRepository : UserRepository = {
 
         return exist ? true : false;
 },
-    getUserByEmail:async (email:string) => await getUserContext().findOne({email})
+    getUserByEmail:async (email:string) => await getUserContext().findOne({email}),
+    setVote:async (id : string) => {
+       const update =  await getUserContext().updateOne({_id: new ObjectId(id)}, {isVoted:true} )    
+       return update.acknowledged;
+    },
+    setCardSend:async (id : string) => {
+        const update =  await getUserContext().updateOne({_id: new ObjectId(id)}, {$set:{isTarotCardSend:true}} )    
+        return update.acknowledged;
+     }
     
 }

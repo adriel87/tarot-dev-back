@@ -1,9 +1,6 @@
-import e, { Router } from 'express'
-import jwt from 'jsonwebtoken'
+import { Router } from 'express'
 
-import { UserSession } from 'common-app/models';
 import { userRepository } from 'dals/user/repositories';
-import { envConstant } from 'core/constants';
 import { User } from 'dals';
 import { mapUserFromApiToModel, mapUserFromModelToApi } from 'pods/user/user.mappers';
 import { compareHash, getBearerToken, hashPassword } from '../../utils/cript';

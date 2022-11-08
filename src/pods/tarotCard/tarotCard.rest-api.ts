@@ -33,6 +33,7 @@ tarotCardApi
         next(error)
     }
 })
+// TODO get one card 
 // tarot card by id
     .get('/:id', async (req, res, next)=>{
     try {

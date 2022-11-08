@@ -1,7 +1,6 @@
 import path from 'path'
 import { unlink } from 'node:fs/promises'
 import { RequestHandler } from 'express';
-import { envConstant } from 'core/constants';
 
 
 export const deleteTemporalImages: RequestHandler = async (req, res, next) => {

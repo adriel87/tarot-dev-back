@@ -1,4 +1,4 @@
-
+// TODO improve the interface
 export interface TarotCardPoint{
     pointTable:[
         week: number,

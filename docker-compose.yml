@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  tarot-back-db:
+    container_name: tarot-db
+    image: mongo:5.0.9
+    ports:
+      - '27017:27017'
+   
+volumes:
+  mongo-data:

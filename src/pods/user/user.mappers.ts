@@ -6,7 +6,7 @@ import * as apiModel from './user.api-model'
 
 
 export const mapUserFromModelToApi = (user: model.User) : apiModel.User => ({
-    // id: user._id.toString(),
+    id: user._id.toString(),
     name: user.email,
     isAdmin: user.isAdmin,
     // password: 'user.password',

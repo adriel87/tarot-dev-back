@@ -21,13 +21,10 @@ restApiServer.use(logErrorRequestMiddleware)
 
 // levantar el servicio
 restApiServer.listen(envConstant.PORT, async ()=>{
-    console.log(envConstant);
-    
     if (envConstant.isApiMock === 'true') {
         console.log('RUNING MOCK MODE');
     }else{
         await connectToDBServer( envConstant.MONGODB_URI );
-        const cards = await db.collection('cards').findOne();
     }
     console.log(`The server is Ready in port ${envConstant.PORT}`);
 })

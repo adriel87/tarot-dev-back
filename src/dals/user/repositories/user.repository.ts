@@ -9,4 +9,6 @@ export interface UserRepository {
     deleteUser: ( id: string ) => Promise<DeleteResult> | Promise<User[]>;
     getUserByEmailAndPassword : (email :string , password: string) => Promise<User> | null;
     checkEmailExist: (email: string) => Promise<boolean> ;
+    setVote: (id: string) => Promise<boolean>;
+    setCardSend: (id: string) => Promise<boolean>
 }

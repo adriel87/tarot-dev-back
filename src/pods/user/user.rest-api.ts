@@ -2,7 +2,6 @@ import { Router } from "express";
 import { userRepository } from '../../dals/user/repositories'
 import {
     mapUserFromApiToModel,
-    mapUserFromModelToApi,
     mapUserListFromModelToApi
 } from './user.mappers'
 
@@ -46,6 +45,24 @@ userApi
         next(error)        
     }
 })
+.put('/:email/vote', async (req, res, next)=> {
+    try {
+        const email = req.params.email
+        const updateUser = await userRepository.setVote(email)
+        res.send(updateUser)
+    } catch (error) {
+        next(error)
+    }
+})
+.put('/:id/cardSend', async (req, res, next)=> {
+    try {
+        const id = req.params.id
+        const updateUser = await userRepository.setCardSend(id)
+        res.send(updateUser)
+    } catch (error) {
+        next(error)
+    }
+})  
 // delete tarotCard
 .delete('/:id', async (req, res, next)=> {
     try {

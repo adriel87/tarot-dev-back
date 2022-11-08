@@ -20,5 +20,8 @@ export const mockRepository : UserRepository = {
     deleteUser :async ( id : string) => db.user.filter(user => user._id.toString() !== id),
     getUserByEmailAndPassword : async ( email : string, password : string) => db.user.find(user => user.email === email && user.password === password) ,
     checkEmailExist:async (email:string) => Boolean(db.user.find(user => user.email === email)),
-    getUserByEmail:async (email:string) => db.user.find(user => user.email === email)
+    getUserByEmail: async (email:string) => db.user.find(user => user.email === email),
+    setVote : async (email:string) => Boolean(db.user.find(user => user.email === email)),
+    setCardSend : async (email:string) => Boolean(db.user.find(user => user.email === email)),
+
 }
