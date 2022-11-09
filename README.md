@@ -14,11 +14,11 @@ you can install manually in your computer or you can dockerize your mongodb
 
 see the next steps
 
-### mongo
+### mongo 🤖
 
 first install [docker](https://www.docker.com/products/docker-desktop/)
 
-second create a container whit [mongo image](https://hub.docker.com/_/mongo) in the link explain how to run you container
+second create a container whit [mongo image](https://hub.docker.com/_/mongo) in the link explain how run a docker container in local
 
 third, you can use docker compose file in repositorie just need type before you laun the server
 
@@ -41,28 +41,46 @@ yarn start
 if you have any problem please take a look to your enviroment variables, check your database is running.
 
 
-## Services
-<!-- TODO  -->
-### Authentication
-<!-- TODO  -->
+## Services 🚽
+the application have 3 principal services tarot cards, user and authentication
+
+### Authentication 🔐
+
+with the authentication service we log or sign in a user, in both methods we get a bearer token to authenticate in the following request
 
 
-### Serving Tarot Cards
-<!-- TODO  -->
-1. repository
-2. images
-  - cloudinary
-  - multer
-3. database
-4. 
+
+### 🎴 Tarot Cards 🎴
+in tarot card we have a usual crud but the application count whit another methods to manage the associate images of tarot cards
+
+- the middlewares
+  - save image in server 
+  - upload to cloudinary, in this method we receive an url whit image direction
+  - delete image in localhost
+
+### User 🙍‍♀️🙍‍♂️
+
+In this case we get different method to check some things about the user or update some fields
+- check by email
+- setVote
+- setUploadImage
 
 
-## Technology 
+## Technology 🖥
 The core of the app is build in [nodejs](https://nodejs.org/en/), but the project use some libraries like:
 
 - express, framework to create API-REST  
 - mongodb, non relational DB 
 - dotenv, manage our enviroment variables in a simple file
+- multer, manage incoming files,
+- jsonwebtoken and bcrypt to manage security
+
+## next steeps 🦶
+
+automate how reset the fields isVoted and  isTarotCardSend in user
+implement Rest-API for tarot card puntuation
+
+
 
 ## use free and share
 
