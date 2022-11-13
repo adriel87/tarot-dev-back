@@ -27,6 +27,25 @@ yarn db-start
 ```
 this function run a container whit mongo in dettached mode
 
+### cloudinary
+
+if you test this repo in local you need have  a account in [cloudinar](https://cloudinary.com/)
+
+once you are registered, go to dashboard and check the next values
+
+- cloud name 
+- api Key 
+- api secret 
+
+whit this you can change the next enviroment variables
+
+### CLOUDDINARY
+
+CLOUD_NAME= your clod
+CLOUD_API_KEY= your api key
+CLOUD_SECRET= your api secret
+
+
 2. in the root of the project run a terminal and execute the next command:
 ```bash
 yarn
@@ -42,19 +61,30 @@ if you have any problem please take a look to your enviroment variables, check y
 
 
 ## Services
-<!-- TODO  -->
+
+we have 3 principal services in this backen
+
+1. authenticate
+2. Tarot card Rest-Api
+3. upload images to cloudinary
+
 ### Authentication
-<!-- TODO  -->
 
+in the first iteration of tarot dev back we implement a basic auth
 
-### Serving Tarot Cards
-<!-- TODO  -->
-1. repository
-2. images
-  - cloudinary
-  - multer
-3. database
-4. 
+1. create or autenthicate a user
+2. send a token for upcoming request
+3. validate all request whit the previous token sended
+
+### Tarot Cards API
+
+It's a simple crud
+
+### User API 
+
+in this case we have some interest endpoint like:
+
+- `:email/vote` update a field isVoted for email request param 
 
 
 ## Technology 
