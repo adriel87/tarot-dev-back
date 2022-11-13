@@ -14,11 +14,11 @@ you can install manually in your computer or you can dockerize your mongodb
 
 see the next steps
 
-### mongo
+### mongo 🤖
 
 first install [docker](https://www.docker.com/products/docker-desktop/)
 
-second create a container whit [mongo image](https://hub.docker.com/_/mongo) in the link explain how to run you container
+second create a container whit [mongo image](https://hub.docker.com/_/mongo) in the link explain how run a docker container in local
 
 third, you can use docker compose file in repositorie just need type before you laun the server
 
@@ -76,23 +76,35 @@ in the first iteration of tarot dev back we implement a basic auth
 2. send a token for upcoming request
 3. validate all request whit the previous token sended
 
-### Tarot Cards API
+### 🎴 Tarot Cards 🎴
+in tarot card we have a usual crud but the application count whit another methods to manage the associate images of tarot cards
 
-It's a simple crud
+- the middlewares
+  - save image in server 
+  - upload to cloudinary, in this method we receive an url whit image direction
+  - delete image in localhost
 
-### User API 
+### User 🙍‍♀️🙍‍♂️
 
-in this case we have some interest endpoint like:
+In this case we get different method to check some things about the user or update some fields
+- check by email
+- setVote
+- setUploadImage
 
-- `:email/vote` update a field isVoted for email request param 
 
-
-## Technology 
+## Technology 🖥
 The core of the app is build in [nodejs](https://nodejs.org/en/), but the project use some libraries like:
 
 - express, framework to create API-REST  
 - mongodb, non relational DB 
 - dotenv, manage our enviroment variables in a simple file
+- multer, manage incoming files,
+- jsonwebtoken and bcrypt to manage security
+
+## next steeps 🦶
+
+automate how reset the fields isVoted and  isTarotCardSend in user
+implement Rest-API for tarot card puntuation
 
 ## use free and share
 
